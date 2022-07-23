@@ -1,0 +1,23 @@
+<button class="add_button" mat-raised-button [routerLink]="['new']">
+  Add New
+</button>
+<mat-accordion
+  *ngFor="let customer of customers"
+  displayMode="default"
+  [multi]="true"
+  [hideToggle]="false"
+>
+  <mat-expansion-panel [hideToggle]="false">
+    <mat-expansion-panel-header>
+      {{ customer.name }}
+    </mat-expansion-panel-header>
+    <mat-action-row>
+      <div>
+        <p>Name : {{ customer.name }}</p>
+        <p>Address: {{ customer.address }}</p>
+        <button mat-button (click)="onEdit(customer)">Edit</button>
+        <button mat-button (click)="onDelete(customer)">Delete</button>
+      </div>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

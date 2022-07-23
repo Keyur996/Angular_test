@@ -1,0 +1,46 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title style="text-align: center"
+      >{{ isEdit ? "Update" : "Add" }} Customer</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit(customerForm)" #customerForm="ngForm">
+      <mat-form-field>
+        <input
+          matInput
+          name="name"
+          [(ngModel)]="customer.name"
+          type="text"
+          placeholder="Enter Your Name"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="phone"
+          [(ngModel)]="customer.phone"
+          placeholder="Enter Phone"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          name="address"
+          [(ngModel)]="customer.address"
+          type="text"
+          placeholder="Enter Your address"
+          required
+        />
+      </mat-form-field>
+      <button color="primary" type="submit" mat-raised-button>
+        {{ isEdit ? "Update" : "Add" }}
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
